@@ -1,0 +1,31 @@
+[
+{
+    "firstName": "Ramba", 
+    "lastName": "Ncube", 
+    "address": "34 cope road", 
+    "location": "Montrose", 
+    "Town": "Bulawayo",
+    "age": "43",
+    "phonenumber": "+263773456231"
+
+},
+{
+    "firstName": "Unice", 
+    "lastName": "Mombase", 
+    "address": "76 Mkoba 6", 
+    "location": "Mkoba", 
+    "Town": "Gweru",
+    "age": "21",
+    "phonenumber": "+263712345678"  
+},
+{
+    "firstName": "Precious", 
+    "lastName": "Made", 
+    "address": "109 New cresent", 
+    "location": "Highfields", 
+    "Town": "Harare",
+    "age": "34",
+    "phonenumber": "+263774567231"
+}
+
+]
