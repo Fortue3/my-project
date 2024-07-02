@@ -1,6 +1,6 @@
 const ObjectId = require("mongodb").ObjectId;
 const Contact = require('../models/contact');
-const contacts = database.contacts;
+const contacts = routes.contacts;
 // GET /contacts
 exports.getAllContacts = async (req, res) => {
   try {

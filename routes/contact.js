@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const MongoClient = mongodb.MongoClient;
+//const MongoClient = mongodb.MongoClient;
 const uri = process.env.MONGODB_URI;
-const ContactController = require('../controllers/contactController');
+const ContactController = require('../controllers/contact');
 
 // GET /contacts
 router.get('/', ContactController.getAllContacts);
@@ -18,6 +18,9 @@ router.get('/', async (req, res) => {
       res.status(500).json({ message: 'Server error' });
     }
   });
+
+  //get one/ contact
+  router.get('/:id', ContactController.getSingle);
 
 // POST /contacts
 router.post('/', ContactController.createContact);

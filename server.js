@@ -1,11 +1,14 @@
-require("dotenv").config();
 const express = require("express");
 const app = express();
-const route = require("./routes");
+const bodyParser = require('body-parser');
+const route = require("./routes/contact");
 const db = require("./models");
 
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
+
+//app.use(bodyParser.json());
+//app.use('/', require('./routes'));
 
 process.on('uncaughtException', (err, origin) => {
     console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
