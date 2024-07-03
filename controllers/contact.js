@@ -1,6 +1,6 @@
 const ObjectId = require("mongodb").ObjectId;
+const contacts  = require("../models");
 const Contact = require('../models/contact');
-const contacts = routes.contacts;
 // GET /contacts
 exports.getAllContacts = async (req, res) => {
   try {
@@ -71,20 +71,12 @@ exports.deleteContact = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid contact id to find a contact.');
     }
-    const userId = new ObjectId(req.params.id);
-    contacts.deleteOne({_id: contactsId})
+    const contactId = new ObjectId(req.params.id);
+    contacts.deleteOne({_id:contactId})
     .then((data) => {
         res.setHeader("Content-Type", "application/json");
         res.send(data);
     }).catch((err) =>{
         throw Error("fail to delete", err);
     })
-};
-
-module.exports = {
-getAll,
-getSingle,
-createContact,
-updateContact,
-deleteContact
 };

@@ -1,0 +1,58 @@
+[
+    {
+        "petName": "Cooper", 
+        "petColor": "Grey", 
+        "species": "Dog", 
+        "gender": "Female"
+
+    },
+
+    {
+        "petName": "Max", 
+        "petColor": "Black", 
+        "species": "Dog", 
+        "gender": "Male"
+
+    },
+    {
+        "petName": "Kitty", 
+        "petColor": "White", 
+        "species": "Cat", 
+        "gender": "Female"
+    },
+
+    {
+        "petName": "Bubbles", 
+        "petColor": "Yellow", 
+        "species": "Fish", 
+        "gender": "Male"
+
+    },
+    {
+        "petName": "Coral", 
+        "petColor": "White", 
+        "species": "Fish", 
+        "gender": "Female"
+    },
+
+    {
+        "petName": "Bunbun", 
+        "petColor": "Grey", 
+        "species": "Rabbit", 
+        "gender": "Male"
+
+    },
+    {
+        "petName": "Hazel", 
+        "petColor": "Maroon", 
+        "species": "Rabbit", 
+        "gender": "Female"
+    },
+    {
+       "petName": "Bailley", 
+        "petColor": "Brown", 
+        "species": "Cat", 
+        "gender": "Male"
+    }
+    
+    ]

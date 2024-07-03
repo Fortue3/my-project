@@ -7,23 +7,17 @@ const db = require("./models");
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
-//app.use(bodyParser.json());
-//app.use('/', require('./routes'));
 
 process.on('uncaughtException', (err, origin) => {
     console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
 });
 
 
-db.mongoose.connect(db.url,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
-    app.listen(PORT, () =>{
-        console.log(`app listening on ${HOST}:${PORT}`);
-    })
-    console.log("connected to database");
-}).catch((err) => {
-    console.log('Could not connect to database!', err);
-    process.exit();
-});
+// Connect to MongoDB
+mongoose.connect(dbConfig.db_url)
+  .then(() => {
+    console.log("Connected to the database");
+  })
+  .catch((error) => {
+    console.error("Could not connect to the database:", error);
+  });
