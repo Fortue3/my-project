@@ -1,12 +1,11 @@
 const router = require("express").Router();
-const recipeController = require("../controllers/pet");
-//const { isAuthenticated } = require("../middleware/authenticate");
-//const validator = require("../middleware/recipeValidation")
+const petControllers = require("../controllers/pet");
 
-router.get("/", petsController.getAll);
-router.get("/:id", petsController.getSingle);
-router.post("/create",isAuthenticated, validator.savePet, petsController.createPet);
-router.put("/update/:id",isAuthenticated ,validator.updatePet, petsController.updatePet);
-router.delete("/delete/:id",isAuthenticated, petsController.deletePet);
+
+router.get("/", petControllers.getAllPets);
+router.get("/:id", petControllers.getSingle);
+router.post("/create", petControllers.createPet);
+router.put("/update/:id", petControllers.updatePet);
+router.delete("/delete/:id", petControllers.deletePet);
 
 module.exports = router;
