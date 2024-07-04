@@ -1,14 +1,22 @@
 const mongoose = require('mongoose');
-const express = require("express");
-const app = express();
-const bodyParser = require('body-parser');
-const route = require("./routes/contact");
-const db = require("./models");
+const dotenv = require('dotenv');
+dotenv.config();
+const app = require('./index');
+
+
 
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
+const MONGODB_URL =process.env.MONGODB_URI;
 
-process.on('uncaughtException', (err, origin) => {
-    console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+mongoose.connect(MONGODB_URL).then(con =>{
+    console.log('connected successfully')
+
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+      });
+
 });
+
+

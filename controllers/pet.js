@@ -1,16 +1,16 @@
 const ObjectId = require("mongodb").ObjectId;
-const Contact = require('../models/pets');
+const Pets = require('../models/pets');
 // GET /pets
 exports.getAllPets = async (req, res) => {
   try {
-    const pets = await pets.find();
+    const pets = await Pets.find();
     res.json(pets);
   } catch (err) {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
 
-exports.getSingle = (req, res)=>{
+exports.getSingle = async(req, res)=>{
   if (!ObjectId.isValid(req.params.id)) {
       res.status(400).json('Must use a valid contact id to find a contact.');
       }
