@@ -19,11 +19,12 @@ Content-Type: application/json
 }
 
 ### put contact
-PUT http://localhost:3000/contacts/668718275b7e39845f15eead HTTP/1.1
+PUT http://localhost:3000/contacts/668718275b7e39845f15eeac HTTP/1.1
 Content-Type: application/json
 {
     "location": "Senga"  
 }
 
 ###DELETE contact
-DELETE http://localhost:3000/contacts/667e9ebdf82e525de2854ebd HTTP/1.1
+DELETE://localhost:3000/contacts/668718275b7e39845f15eeac HTTP/1.1
+Content-Type: application/json
