@@ -60,15 +60,16 @@ try{
 
 // DELETE /contacts/:id
 exports.deleteContact = async (req, res) => {
-    if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid contact id to find a contact.');
-    }
-    const contactId = new ObjectId(req.params.id);
-    contacts.deleteOne({_id:contactId})
-    .then((data) => {
-        res.setHeader("Content-Type", "application/json");
-        res.send(data);
-    }).catch((err) =>{
-        throw Error("fail to delete", err);
-    })
-};
+try{
+      const contactsId = req.params.id;
+      console.log(contactsId)
+      const body = req.body
+      console.log(body)
+      const deleteOne = Contacts.findByIdAndDelete(contactsId, body)
+       res.status(201).json ({data:deleteOne}) 
+  
+   
+      } catch(err) {
+          throw Error("fail to delete", err);
+      }
+  };
