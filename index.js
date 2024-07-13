@@ -1,16 +1,18 @@
 const express = require('express');
-const contactsRouter = require('./routes/contact');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./models/swagger.json');
+const routes = require('./routes');
+const bodyParser = require('body-parser');
+
 
 
 const app = express();
 
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/contacts', contactsRouter);
+app.use('/', routes);
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 module.exports = app;
 

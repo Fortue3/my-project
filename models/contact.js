@@ -3,35 +3,35 @@ const mongoose = require('mongoose');
 const contactSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true,
+    required: true
   },
   lastName: {
     type: String,
-    required: true,
+    required: true
   },
   address: {
     type: String,
-    required: true,
+    required: true
   },
   location: {
     type: String,
-    required: true,
+    required: true
   },
   Town: {
     type: String,
-    required: true,
+    required: true
   },
   age: {
     type: String,
-    required: true,
+    required: true
   },
   phonenumber: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
-const Contacts = mongoose.model('Contacts', contactSchema);
+const Contacts = mongoose.model('contacts', contactSchema);
 
 module.exports = Contacts;
 

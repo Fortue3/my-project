@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const petControllers = require("../controllers/pet");
+const {petControllers} = require("../controllers/pets");
 
 
 router.get("/", petControllers.getAllPets);

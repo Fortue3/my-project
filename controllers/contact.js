@@ -1,12 +1,14 @@
-const Contacts = require('../models/contact');
+const db = require('../models/index');
+const Contacts = db.contacts;
 // GET /contacts
 exports.getAllContacts = async (req, res) => {
-  try {
-    const contacts = await Contacts.find();
-    res.json(contacts);
-  } catch (err) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
+  // try {
+  //   const contacts = await Contacts.find();
+  //   res.json(contacts);
+  // } catch (err) {
+  //   res.status(500).json({ error: 'Internal server error' });
+  // }
+  res.send('message')
 };
 
 exports.getSingle = async (req, res)=>{
@@ -26,18 +28,20 @@ catch(err) {
 
 // POST /contacts
 exports.createContact =async(req, res) =>{
-try{
   const newContacts =  {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      address: req.body.address,
-      town: req.body.Town,
-      age: req.body.age,
-      phonenumber: req.body.phonenumber,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    address: req.body.address,
+    town: req.body.Town,
+    age: req.body.age,
+    phonenumber: req.body.phonenumber
   }
-  const aNewContact = await Contacts.create(newContacts)
-  res.status(201).json({data:aNewContact})
+try{
+ const newContact = new Contacts(req.body)
+  const aNewContact = await newContact.save()
+  res.status(201).json(aNewContact)
   }catch(err) {
+   
    res.status(500).json({err: "Error occured"})
   }
 }
@@ -47,14 +51,24 @@ exports.updateContact = async (req, res) => {
 try{
     const contactsId = req.params.id;
     console.log(contactsId)
-    const body = req.body
+    const body = {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          address: req.body.address,
+          town: req.body.Town,
+          age: req.body.age,
+          phonenumber: req.body.phonenumber
+        }
     console.log(body)
-    const update = Contacts.findByIdAndUpdate(contactsId, body)
-     res.status(201).json ({data:update}) 
+    const update = await Contacts.findByIdAndUpdate(contactsId, body,
+      {new: true, runValidators: true}
+    )
+     res.json({data:update}) 
 
  
-    } catch(err) {
-        throw Error("fail to update", err);
+    } catch(err) { 
+      console.error(err)
+        res.status(500).json({message: "error updating the contact"});
     }
 }
 
@@ -63,9 +77,7 @@ exports.deleteContact = async (req, res) => {
 try{
       const contactsId = req.params.id;
       console.log(contactsId)
-      const body = req.body
-      console.log(body)
-      const deleteOne = Contacts.findByIdAndDelete(contactsId, body)
+      const deleteOne = await Contacts.findByIdAndDelete(contactsId)
        res.status(201).json ({data:deleteOne}) 
   
    

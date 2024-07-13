@@ -1,13 +1,19 @@
-const Pets = require('../models/pets');
+const db = require('../models/index');
+const Pets = db.pets;
+const petControllers = require('../controllers/petControllers');
+
+
+router.get('/', petControllers.getAllPets);
+
 // GET /pets
 exports.getAllPets = async (req, res) => {
-  try {
-    const pets = await Pets.find();
-    res.json(pets);
-  } catch (err) {
-    res.status(500).json({ error: 'Internal server error' });
-  }
-};
+    try {
+      const pets = await Pets.find();
+      res.json(pets);
+    } catch (err) {
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  };
 
 
 exports.getSingle = async (req, res)=>{

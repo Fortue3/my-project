@@ -26,3 +26,6 @@ Content-Type: application/json
 
 ### Delete pet by id
 DELETE http://localhost:3000/pets/668500830c747c976a3f55b3 HTTP/1.1
+
+
+#

@@ -3,23 +3,23 @@ const mongoose = require('mongoose');
 const petSchema = new mongoose.Schema({
   petName: {
     type: String,
-    required: true,
+    required: true
   },
   petColor: {
     type: String,
-    required: true,
+    required: true
   },
   species: {
     type: String,
-    required: true,
+    required: true
   },
   gender: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
-const Pets = mongoose.model('Pets', petSchema);
+const Pets = mongoose.model('pets', petSchema);
 
 module.exports = Pets;
 
